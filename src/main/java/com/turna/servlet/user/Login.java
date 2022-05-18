@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * @author fu.zhirao
  */
 @WebServlet("/login")
 public class Login extends HttpServlet {

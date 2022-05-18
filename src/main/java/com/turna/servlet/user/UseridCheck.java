@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.turna.service.SHOP_USERDao;
+import com.turna.service.UserDao;
 
 /**
- * Servlet implementation class UseridCheck
+ * @author fu.zhirao
  */
 @WebServlet("/useridcheck")
 public class UseridCheck extends HttpServlet {
@@ -30,13 +30,13 @@ public class UseridCheck extends HttpServlet {
 
 		String nameid = request.getParameter("name");
 
-		int count = SHOP_USERDao.selectById(nameid);
-		
+		int count = UserDao.selectById(nameid);
+
 		PrintWriter out = response.getWriter();
 		if (count > 0) {
 			out.print("false");
 		} else {
-			
+
 			out.print("true");
 
 		}

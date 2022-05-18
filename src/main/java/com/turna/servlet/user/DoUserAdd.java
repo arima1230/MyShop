@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.turna.entity.SHOP_USER;
-import com.turna.service.SHOP_USERDao;
+import com.turna.entity.User;
+import com.turna.service.UserDao;
 
 /**
- * Servlet implementation class DoUserAdd
+ * @author fu.zhirao
  */
 @WebServlet("/manager/admin_douseradd")
 public class DoUserAdd extends HttpServlet {
@@ -40,11 +40,11 @@ public class DoUserAdd extends HttpServlet {
 		String address = request.getParameter("address");
 
 		// インスタンス化
-		SHOP_USER u = new SHOP_USER(userid, name, pwd, sex, year, null, email, phone, address, 1);
+		User u = new User(userid, name, pwd, sex, year, null, email, phone, address, 1);
 
 		// DBに入れる
 
-		int count = SHOP_USERDao.insert(u);
+		int count = UserDao.insert(u);
 		// System.out.print(u);
 		// 成功/失敗によってforward
 

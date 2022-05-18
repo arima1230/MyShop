@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.turna.entity.SHOP_USER;
-import com.turna.service.SHOP_USERDao;
+import com.turna.entity.User;
+import com.turna.service.UserDao;
 
 /**
- * Servlet implementation class DoUserSelect
+ * @author fu.zhirao
  */
 @WebServlet("/manager/admin_douserselect")
 public class DoUserSelect extends HttpServlet {
@@ -28,15 +28,15 @@ public class DoUserSelect extends HttpServlet {
 		// 文字コードを設定する
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
-		//ユーザ情報取得
-		ArrayList<SHOP_USER> list= SHOP_USERDao.selectAll();
-		
-		//値を設定する
-		request.setAttribute("userlist",list );
-		
-		//画面の遷移先
+
+		// ユーザ情報取得
+		ArrayList<User> list = UserDao.selectAll();
+
+		// 値を設定する
+		request.setAttribute("userlist", list);
+
+		// 画面の遷移先
 		request.getRequestDispatcher("/manager/admin_user.jsp").forward(request, response);
 	}
-	
+
 }

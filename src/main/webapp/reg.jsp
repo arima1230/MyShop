@@ -19,7 +19,7 @@
     		margin-left:20px;
     	}
     </style>
-    <!-- test -->>
+    <!-- test -->
 </head>
 <body><!-------------------reg-------------------------->
 <div class="reg">

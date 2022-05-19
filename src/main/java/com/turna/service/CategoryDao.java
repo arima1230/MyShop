@@ -58,4 +58,51 @@ public class CategoryDao {
 		return Basedao.exectuIUD(sql, params);
 	}
 
+	/**
+	 * idによってカテゴリを取得
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public static Category selectById(int id) {
+		Category cate = null;
+		// 実際の値を取得
+		ResultSet rs = null;
+		// DB接続
+		Connection conn = Basedao.getconn();
+		// SQLを設定する
+		PreparedStatement ps = null;
+
+		String sql = "select * from categories where cate_id=?";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				cate = new Category(rs.getInt("cate_id"), rs.getString("cate_name"), rs.getInt("cate_parent_id"), null,
+						null);
+			}
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} finally {
+			Basedao.closeall(rs, ps, conn);
+		}
+
+		return cate;
+	}
+
+	/**
+	 * カテゴリの変更
+	 * 
+	 * @param cate
+	 * @return
+	 */
+	public static int update(Category cate) {
+		String sql = "update categories set cate_name=?,cate_parent_id=? where cate_id =?";
+		Object[] params = { cate.getCate_name(), cate.getCate_parent_id(), cate.getCate_id() };
+		return Basedao.exectuIUD(sql, params);
+	}
+
 }

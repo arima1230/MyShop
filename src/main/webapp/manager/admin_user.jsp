@@ -15,10 +15,11 @@
 		<tr>
 			
 			<th>ID</th>
-			<th>名前</th>
-			<th>性別</th>
+			<th>氏名</th>
 			<th>EMAIL</th>
 			<th>電話番号</th>
+			<th>詳細</th>
+			
 		</tr>
 		
 		<c:forEach var ="u" items="${userlist }">

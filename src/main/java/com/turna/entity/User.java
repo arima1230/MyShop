@@ -5,37 +5,32 @@ package com.turna.entity;
  *
  */
 public class User {
-	private String user_id;
+	private int user_id;
 	private String user_name;
-	private String user_password;
-	private String user_sex;
-	private String user_birthday;
-	private String user_idenity_code;
-	private String user_email;
-	private String user_phone;
-	private String user_address;
-	private int user_status;
+	private String pass;
+	private String birthday;
+	private String email;
+	private String phonenumber;
+	private String address;
+	private String kana;
+	
 
-	public User(String user_id, String user_name, String user_password, String user_sex, String user_birthday,
-			String user_idenity_code, String user_email, String user_phone, String user_address, int user_status) {
-		super();
+	public User(int user_id, String user_name, String pass,  String birthday,
+			 String email, String phonenumber, String address) {
 		this.user_id = user_id;
 		this.user_name = user_name;
-		this.user_password = user_password;
-		this.user_sex = user_sex;
-		this.user_birthday = user_birthday;
-		this.user_idenity_code = user_idenity_code;
-		this.user_email = user_email;
-		this.user_phone = user_phone;
-		this.user_address = user_address;
-		this.user_status = user_status;
+		this.pass = pass;
+		this.birthday = birthday;
+		this.email = email;
+		this.phonenumber = phonenumber;
+		this.address = address;
 	}
 
-	public String getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 
@@ -47,68 +42,53 @@ public class User {
 		this.user_name = user_name;
 	}
 
-	public String getUser_password() {
-		return user_password;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
-	public String getUser_sex() {
-		return user_sex;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setUser_sex(String user_sex) {
-		this.user_sex = user_sex;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
-	public String getUser_birthday() {
-		return user_birthday;
+	public String getPhonenumber() {
+		return phonenumber;
 	}
 
-	public void setUser_birthday(String user_birthday) {
-		this.user_birthday = user_birthday;
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 
-	public String getUser_idenity_code() {
-		return user_idenity_code;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setUser_idenity_code(String user_idenity_code) {
-		this.user_idenity_code = user_idenity_code;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getUser_email() {
-		return user_email;
+	public String getKana() {
+		return kana;
 	}
 
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+	public void setKana(String kana) {
+		this.kana = kana;
 	}
 
-	public String getUser_phone() {
-		return user_phone;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-	public String getUser_address() {
-		return user_address;
-	}
-
-	public void setUser_address(String user_address) {
-		this.user_address = user_address;
-	}
-
-	public int getUser_status() {
-		return user_status;
-	}
-
-	public void setUser_status(int user_status) {
-		this.user_status = user_status;
-	}
-
 }
+	
+

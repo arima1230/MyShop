@@ -18,10 +18,10 @@ public class UserDao {
 	 * @return
 	 */
 	public static int insert(User u) {
-		String sql = "insert into SHOP_USER values(?,?,?,?,DATE_FORMAT(?,'%Y-%m-%d'),?,?,?,?,?)";
-		Object[] params = { u.getUser_id(), u.getUser_name(), u.getUser_password(), u.getUser_sex(),
-				u.getUser_birthday(), u.getUser_idenity_code(), u.getUser_email(), u.getUser_phone(),
-				u.getUser_address(), u.getUser_status() };
+		String sql = "insert into users values(?,?,?,?,DATE_FORMAT(?,'%Y-%m-%d'),?,?,?,?,?)";
+		Object[] params = { u.getUser_id(), u.getUser_name(), u.getPass(), u.getSex(),
+				u.getUser_birthday(),  u.getUser_email(), u.getUser_phone(),
+				u.getUser_address() };
 		return Basedao.exectuIUD(sql, params);
 	}
 
@@ -42,15 +42,15 @@ public class UserDao {
 		PreparedStatement ps = null;
 
 		try {
-			String sql = "select * from SHOP_USER order by user_birthday";
+			String sql = "select * from users order by birthday";
 			ps = conn.prepareStatement(sql);
 			// SQL文を発行する
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				User u = new User(rs.getString("user_id"), rs.getString("user_name"), rs.getString("user_password"),
-						rs.getString("user_sex"), rs.getString("user_birthday"), rs.getString("user_idenity_code"),
-						rs.getString("user_email"), rs.getString("user_phone"), rs.getString("user_address"),
+				User u = new User(rs.getString("user_id"), rs.getString("user_name"), rs.getString("pass"),
+						rs.getString("sex"), rs.getString("birthday"), rs.getString("user_idenity_code"),
+						rs.getString("email"), rs.getString("phonenumber"), rs.getString("address"),
 						rs.getInt("user_status"));
 				list.add(u);
 			}

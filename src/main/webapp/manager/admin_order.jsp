@@ -14,6 +14,11 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 </head>
 <body>    
+<div class="crumb-list">
+		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span
+			class="crumb-step">&gt;</span><a class="crumb-name"
+			href="admin_cateselect">オーダー管理</a>
+	</div>
 		<style type="text/css">
 html, body {
   width: 100%;

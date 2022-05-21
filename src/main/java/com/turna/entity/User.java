@@ -1,31 +1,40 @@
 package com.turna.entity;
+import java.io.Serializable;
 
-/**
- * @author fu.zhirao
- *
- */
-public class User {
+public class User implements Serializable {
+	
 	private int user_id;
 	private String user_name;
-	private String pass;
-	private String birthday;
-	private String email;
-	private String phonenumber;
-	private String address;
 	private String kana;
+	private String pass;
+	private String postcode;
+	private String adress;
+	private String building;
+	private String roomnumber;
+	private String sex;
+	private String birthday;
+	private String phonenumber;
+	private String email;
+
+	//public User(int user_id, String user_name, String kana, String pass, String postcode, String adress,
+			//String building, String roomnumber, String sex, String birthday, String phonenumber, String email) {
+		//super();
+		
+//		this.user_id = user_id;
+//		this.user_name = user_name;
+//		this.kana = kana;
+//		this.pass = pass;
+//		this.postcode = postcode;
+//		this.adress = adress;
+//		this.building = building;
+//		this.roomnumber = roomnumber;
+//		this.sex = sex;
+//		this.birthday = birthday;
+//		this.phonenumber = phonenumber;
+//		this.email = email;
+//	}
+
 	
-
-	public User(int user_id, String user_name, String pass,  String birthday,
-			 String email, String phonenumber, String address) {
-		this.user_id = user_id;
-		this.user_name = user_name;
-		this.pass = pass;
-		this.birthday = birthday;
-		this.email = email;
-		this.phonenumber = phonenumber;
-		this.address = address;
-	}
-
 	public int getUser_id() {
 		return user_id;
 	}
@@ -42,12 +51,60 @@ public class User {
 		this.user_name = user_name;
 	}
 
+	public String getKana() {
+		return kana;
+	}
+
+	public void setKana(String kana) {
+		this.kana = kana;
+	}
+
 	public String getPass() {
 		return pass;
 	}
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public String getBuilding() {
+		return building;
+	}
+
+	public void setBuilding(String building) {
+		this.building = building;
+	}
+
+	public String getRoomnumber() {
+		return roomnumber;
+	}
+
+	public void setRoomnumber(String roomnumber) {
+		this.roomnumber = roomnumber;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getBirthday() {
@@ -66,22 +123,6 @@ public class User {
 		this.phonenumber = phonenumber;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getKana() {
-		return kana;
-	}
-
-	public void setKana(String kana) {
-		this.kana = kana;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -89,6 +130,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-}
-	
 
+}

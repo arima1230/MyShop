@@ -11,7 +11,6 @@
 <title>ユーザー情報詳細</title>
 </head>
 <body>
-<form action="/MyShop/manager/admin_user" method="post">
 <div class="main-wrap">
 		<table class="result-tab" width="100%">
 			<tr>
@@ -26,6 +25,22 @@
 				<th>建物名</th>
 				<th>部屋番号</th>
 			</tr>
+			
+			<tr align="center">
+				<td><%=session.getAttribute("id")%></td>
+				<td><%=session.getAttribute("name")%></td>
+				<td><%=session.getAttribute("kana")%></td>
+				<td><%=session.getAttribute("birthday")%></td>
+				<td><%=session.getAttribute("email")%></td>
+				<td><%=session.getAttribute("phonenumber")%></td>
+				<td><%=session.getAttribute("adress")%></td>
+				<td><%=session.getAttribute("building")%></td>
+				<td><%=session.getAttribute("roomnumber")%></td>
+			</tr>
+			
+			
+			
+			
 			<tr align="center">
 			<c:forEach var="u" items="${userlist }">
 				<td>${u.user_id}</td>
@@ -38,26 +53,13 @@
 				<td>${u.adress}</td>
 				<td>${u.building}</td>
 				<td>${u.roomnumber}</td>
+				
 		</tr>
 		</c:forEach>
 		</table>
 	</div>
-	
+	<form action="/MyShop/manager/admin_user" method="post">
 	<input type="submit" name="submit" value="戻る">
 	</form>
-
-		<%--セッションからユーザ情報を取り出し、データ行を作成する --%>
-		
-		
-		<%--=session.getAttribute("id")--%>
-		<%--=session.getAttribute("name")--%>
-		<%--=session.getAttribute("kana")--%>
-		<%--=session.getAttribute("birthday")--%>
-		<%--=session.getAttribute("adress")--%>
-		<%--=session.getAttribute("phonenumber")--%>
-		<%--=session.getAttribute("postcode")--%>
-		<%--=session.getAttribute("building")--%>
-		<%--=session.getAttribute("roomnumber")--%>
-
 </body>
 </html>

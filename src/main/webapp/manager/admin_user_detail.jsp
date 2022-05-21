@@ -1,8 +1,8 @@
 <%@page import="com.turna.entity.User"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page contentType="text/html;charset=UTF-8" language="java"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +41,7 @@
 			
 			
 			
-			<tr align="center">
+			<!--  tr align="center">
 			<c:forEach var="u" items="${userlist }">
 				<td>${u.user_id}</td>
 				<td>${u.user_name}</td>
@@ -55,11 +55,9 @@
 				<td>${u.roomnumber}</td>
 				
 		</tr>
-		</c:forEach>
+		</c:forEach>-->
 		</table>
 	</div>
-	<form action="/MyShop/manager/admin_user" method="post">
-	<input type="submit" name="submit" value="戻る">
-	</form>
+	<button type="button" onclick="history.back()">戻る</button>
 </body>
 </html>

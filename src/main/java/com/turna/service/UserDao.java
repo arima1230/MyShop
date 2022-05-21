@@ -1,15 +1,13 @@
 package com.turna.service;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.turna.dao.Basedao;
+import com.turna.dao.DBAccess;
 import com.turna.entity.User;
 
-public class UserDao extends Basedao {
+public class UserDao extends DBAccess {
 
 	// ユーザー一覧を取得する
 	public ArrayList<User> getUserList() {
@@ -50,6 +48,43 @@ public class UserDao extends Basedao {
 		}
 		return list;
 	}
+	// ユーザを取得する ！危険！消すかも
+		public User getUser(int user_id) {
+			User bean = new User();
+			// SQL文を作成する
+			String sql = "SELECT * FROM users WHERE user_id = ?";
+			
+			try {
+
+				// Connectionオブジェクトを取得する
+				connect();
+				// ステートメントを作成する
+				PreparedStatement ps = getConnection().prepareStatement(sql);
+				ps.setInt(1, user_id);
+				// SQLを発行する
+				ResultSet rs = ps.executeQuery();
+
+				// ResultSetからbeanにユーザ情報を設定する
+				while (rs.next()) {
+					bean.setUser_id(rs.getInt("user_id"));
+					bean.setUser_name(rs.getString("user_name"));
+					bean.setKana(rs.getString("kana"));
+					bean.setPostcode(rs.getString("postcode"));
+					bean.setAdress(rs.getString("adress"));
+					bean.setBuilding(rs.getString("building"));
+					bean.setRoomnumber(rs.getString("roomnumber"));
+					bean.setPhonenumber(rs.getString("phonenumber"));
+					bean.setEmail(rs.getString("email"));
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disconnect();
+			}
+			return bean;
+		}
+}
 
 	/**
 	 * ユーザの追加
@@ -103,42 +138,6 @@ public class UserDao extends Basedao {
 //		return list;
 //	}
 
-	// ユーザを取得する ！危険！消すかも
-	public User getUser(int id) {
-		User bean = new User();
-		// SQL文を作成する
-		String sql = "SELECT * FROM users WHERE user_id = ?";
-		
-		try {
-
-			// Connectionオブジェクトを取得する
-			connect();
-			// ステートメントを作成する
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setInt(1, id);
-			// SQLを発行する
-			ResultSet rs = ps.executeQuery();
-
-			// ResultSetからbeanにユーザ情報を設定する
-			while (rs.next()) {
-				bean.setUser_id(rs.getInt("user_id"));
-				bean.setUser_name(rs.getString("user_name"));
-				bean.setKana(rs.getString("kana"));
-				bean.setPostcode(rs.getString("postcode"));
-				bean.setAdress(rs.getString("adress"));
-				bean.setBuilding(rs.getString("building"));
-				bean.setRoomnumber(rs.getString("roomnumber"));
-				bean.setPhonenumber(rs.getString("phonenumber"));
-				bean.setEmail(rs.getString("email"));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			disconnect();
-		}
-		return bean;
-	}
 
 	/**
 	 * 
@@ -147,34 +146,34 @@ public class UserDao extends Basedao {
 	 * @param id
 	 * @return
 	 */
-	public static int selectById(int id) {
-		int count = 0;
+//	public static int selectById(int id) {
+//		int count = 0;
+//
+//		// 実際の値を取得
+//		ResultSet rs = null;
+//		// DB接続
+//		Connection conn = Basedao.getconn();
+//
+//		// SQLを設定する
+//		PreparedStatement ps = null;
+//
+//		// SQL文を発行する
+//		try {
+//			String sql = "select count(*) from SHOP_USER where user_id =?";
+//			ps = conn.prepareStatement(sql);
+//			ps.setInt(1, id);
+//
+//			rs = ps.executeQuery();
+//			while (rs.next()) {
+//				count = rs.getInt(1);
+//			}
+//		} catch (SQLException e) {
+//			// TODO 自動生成された catch ブロック
+//			e.printStackTrace();
+//		} finally {
+//			Basedao.closeall(rs, ps, conn);
+//		}
+//
+//		return count;
+//	}
 
-		// 実際の値を取得
-		ResultSet rs = null;
-		// DB接続
-		Connection conn = Basedao.getconn();
-
-		// SQLを設定する
-		PreparedStatement ps = null;
-
-		// SQL文を発行する
-		try {
-			String sql = "select count(*) from SHOP_USER where user_id =?";
-			ps = conn.prepareStatement(sql);
-			ps.setInt(1, id);
-
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				count = rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		} finally {
-			Basedao.closeall(rs, ps, conn);
-		}
-
-		return count;
-	}
-}

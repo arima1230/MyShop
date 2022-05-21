@@ -9,14 +9,7 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-<servlet-name>DoUserSelect</servlet-name>
-<servlet-class>DoUserSelect</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>DoUserSelect</servlet-name>
-<url-pattern>/admin_douserselect</url-pattern>
-</servlet-mapping>
+  
   <servlet>
 <servlet-name>UserServlet</servlet-name>
 <servlet-class>UserServlet</servlet-class>
@@ -24,5 +17,13 @@
 <servlet-mapping>
 <servlet-name>UserServlet</servlet-name>
 <url-pattern>/user</url-pattern>
+</servlet-mapping>
+  <servlet>
+<servlet-name>DetailUserServlet</servlet-name>
+<servlet-class>DetailUserServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>DetailUserServlet</servlet-name>
+<url-pattern>/detailuser</url-pattern>
 </servlet-mapping>
 </web-app>

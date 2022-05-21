@@ -36,10 +36,8 @@
 
 		</table>
 	</div>--%>
+	
 	<%--一覧画面 --%>
-	<%--
-	if (request.getAttribute("top1") == null) {
-	--%>
 	<%
 	ArrayList<User> list = (ArrayList<User>) request.getAttribute("list");
 	%>
@@ -60,58 +58,18 @@
 			<td><%=list.get(i).getEmail()%></td>
 			<td><%=list.get(i).getPhonenumber()%></td>
 			<td>
-				<!--  form action="/Myshop/admin_user?id=<%=list.get(i).getUser_id()%>"
+				<form action="/Myshop/admin_user_detail?id=<%=list.get(i).getUser_id()%>"
 					method="post">
 					<input type="submit" name="submit" value="詳細">
-				</form>-->
+				</form>>
 			</td>
 		</tr>
-		<%--
-		}
-		--%>
 	</table>
 	
-	<%--詳細画面 --%>
-	<%
-	if (request.getAttribute("top1") != null) {
-	%>
-		<%--タイトル行を作成する --%>
-		
-		<table border="1">
-			<tr align="center">
-				<td>ID</td>
-				<td>氏名</td>
-				<td>カナ</td>
-				<td>生年月日</td>
-				<td>メールアドレス</td>
-				<td>電話番号</td>
-				<td>郵便番号</td>
-				<td>住所</td>
-				<td>建物名</td>
-				<td>部屋番号</td>
-			</tr>
-			<%--セッションからユーザ情報を取り出し、データ行を作成する --%>
-			<tr align="center">
-				<td><%=session.getAttribute("user_id")%></td>
-				<td><%=session.getAttribute("user_name")%></td>
-				<td><%=session.getAttribute("kana")%></td>
-				<td><%=session.getAttribute("birthday")%></td>
-				<td><%=session.getAttribute("email")%></td>
-				<td><%=session.getAttribute("phonenumber")%></td>
-				<td><%=session.getAttribute("adress")%></td>
-				<td><%=session.getAttribute("building")%></td>
-				<td><%=session.getAttribute("roomnumber")%></td>
-			</tr>
-		</table>
-
-
 	<%
 	}
 	%>
-	
-	<%
-	}
-	%>
+
 
 </body>
 </html>

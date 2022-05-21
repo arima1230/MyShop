@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.turna.service.UserDao;
 
+@WebServlet("/manager/admin_user")
 public class UserServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		doPost(req, res);
@@ -22,7 +24,7 @@ public class UserServlet extends HttpServlet {
 		// リクエストにDAOで取得したユーザ情報をセットする
 		req.setAttribute("list", dao.getUserList());
 
-		RequestDispatcher rd = req.getRequestDispatcher("/manager/admin_user.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("admin_user.jsp");
 		rd.forward(req, res);
 	}
 }

@@ -6,6 +6,9 @@
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
+<%
+	ArrayList<User> list = (ArrayList<User>) request.getAttribute("list");
+	%>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -35,7 +38,7 @@ body {
   vertical-align: middle;
 }
 </style>
-		<form action="admin_order_detail" method="post">
+		<form action="/Myshop/admin_order_detail?id=<%=list.get(i).getUser_id()%>" method="post">
           <div><input type = "text" value="注文日選択" onclick ="c.show(this)"></div>
         <input type="submit" name="submit" value="決定">
           

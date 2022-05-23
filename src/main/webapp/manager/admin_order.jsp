@@ -4,6 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
+
 <!DOCTYPE html>
 <html>
 <%
@@ -17,7 +18,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 </head>
 <body>  
-<form action="/Myshop/admin_order_day?id=<%=list.get(i).getOder_id()%>" method="post">
+<form action="/Myshop/OrderDayServlet?id=<%=list.get(i).getOder_id()%>" method="post">
 
 <div class="crumb-list">
 		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span

@@ -7,13 +7,13 @@ public class User implements Serializable {
 	private String user_name;
 	private String kana;
 	private String pass;
-	private String postcode;
+	private String post_code;
 	private String adress;
 	private String building;
-	private String roomnumber;
+	private String room_number;
 	private String sex;
 	private String birthday;
-	private String phonenumber;
+	private String phone_number;
 	private String email;
 
 	//public User(int user_id, String user_name, String kana, String pass, String postcode, String adress,
@@ -68,11 +68,11 @@ public class User implements Serializable {
 	}
 
 	public String getPostcode() {
-		return postcode;
+		return post_code;
 	}
 
 	public void setPostcode(String postcode) {
-		this.postcode = postcode;
+		this.post_code = postcode;
 	}
 
 	public String getAdress() {
@@ -92,11 +92,11 @@ public class User implements Serializable {
 	}
 
 	public String getRoomnumber() {
-		return roomnumber;
+		return room_number;
 	}
 
 	public void setRoomnumber(String roomnumber) {
-		this.roomnumber = roomnumber;
+		this.room_number = roomnumber;
 	}
 
 	public String getSex() {
@@ -116,11 +116,11 @@ public class User implements Serializable {
 	}
 
 	public String getPhonenumber() {
-		return phonenumber;
+		return phone_number;
 	}
 
 	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+		this.phone_number = phonenumber;
 	}
 
 	public String getEmail() {

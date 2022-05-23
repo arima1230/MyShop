@@ -1,5 +1,5 @@
 
-<%@page import="com.turna.entity.User"%>
+<%@page import="com.turna.entity.Order"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <%
-	ArrayList<User> list = (ArrayList<User>) request.getAttribute("list");
+	ArrayList<Order> list = (ArrayList<Order>) request.getAttribute("list");
 	%>
 <head>
 <meta charset="UTF-8">
@@ -16,7 +16,9 @@
 <script src="../js/function.js"></script>
 <script src="../js/jquery-1.12.4.min.js"></script>
 </head>
-<body>    
+<body>  
+<form action="/Myshop/admin_order_day?id=<%=list.get(?).getOder_id()%>" method="post">
+
 <div class="crumb-list">
 		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span
 			class="crumb-step">&gt;</span><a class="crumb-name"
@@ -38,9 +40,9 @@ body {
   vertical-align: middle;
 }
 </style>
-		<form action="/Myshop/admin_order_detail?id=<%=list.get(i).getUser_id()%>" method="post">
+		
           <div><input type = "text" value="注文日選択" onclick ="c.show(this)"></div>
-        <input type="submit" name="submit" value="決定">
+        <input type="submit" name="submit" value="決定"></form>
           
 </body>
 </html>

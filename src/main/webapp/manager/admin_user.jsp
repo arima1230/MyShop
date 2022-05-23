@@ -38,10 +38,10 @@
 	</div>--%>
 	
 	<%--一覧画面 --%>
-	<%
+
+	<br>	<%
 	ArrayList<User> list = (ArrayList<User>) request.getAttribute("list");
 	%>
-	<br>
 	<table border="1">
 		<tr align="center">
 				<td>ID</td>

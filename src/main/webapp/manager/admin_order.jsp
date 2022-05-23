@@ -17,7 +17,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 </head>
 <body>  
-<form action="/Myshop/admin_order_day?id=<%=list.get(?).getOder_id()%>" method="post">
+<form action="/Myshop/admin_order_day?id=<%=list.get(i).getOder_id()%>" method="post">
 
 <div class="crumb-list">
 		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span

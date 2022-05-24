@@ -4,65 +4,39 @@ package com.turna.entity;
  * @author fu.zhirao
  */
 public class Category {
-	private int cate_id;
-	private String cate_name;
-	private int cate_parent_id;
-	private String create_at;
-	private String update_at;
+	private int category_id;
+	private String category_name;
+	private int category_parents_id;
 
-	public String getCreate_at() {
-		return create_at;
-	}
-
-	public void setCreate_at(String create_at) {
-		this.create_at = create_at;
-	}
-
-	public String getUpdate_at() {
-		return update_at;
-	}
-
-	public void setUpdate_at(String update_at) {
-		this.update_at = update_at;
-	}
-
-	public Category(int cate_id, String cate_name, int cate_parent_id, String create_at, String update_at) {
+	public Category(int category_id, String category_name, int category_parents_id) {
 		super();
-		this.cate_id = cate_id;
-		this.cate_name = cate_name;
-		this.cate_parent_id = cate_parent_id;
-		this.create_at = create_at;
-		this.update_at = update_at;
+		this.category_id = category_id;
+		this.category_name = category_name;
+		this.category_parents_id = category_parents_id;
 	}
 
-	public Category(int cate_id, String cate_name, int cate_parent_id) {
-		super();
-		this.cate_id = cate_id;
-		this.cate_name = cate_name;
-		this.cate_parent_id = cate_parent_id;
+	public int getCategory_id() {
+		return category_id;
 	}
 
-	public int getCate_id() {
-		return cate_id;
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
 	}
 
-	public void setCate_id(int cate_id) {
-		this.cate_id = cate_id;
+	public String getCategory_name() {
+		return category_name;
 	}
 
-	public String getCate_name() {
-		return cate_name;
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
 	}
 
-	public void setCate_name(String cate_name) {
-		this.cate_name = cate_name;
+	public int getCategory_parents_id() {
+		return category_parents_id;
 	}
 
-	public int getCate_parent_id() {
-		return cate_parent_id;
+	public void setCategory_parents_id(int category_parents_id) {
+		this.category_parents_id = category_parents_id;
 	}
 
-	public void setCate_parent_id(int cate_parent_id) {
-		this.cate_parent_id = cate_parent_id;
-	}
 }

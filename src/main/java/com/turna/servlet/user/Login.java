@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 		System.out.println(account_name);
 		System.out.println(pass);;
 		UserDao dao = new UserDao();
-		if(dao.checkAdminr(account_name, pass) == "ok") {
+		if(dao.checkAdmin(account_name, pass) == "ok") {
 			RequestDispatcher rd = request.getRequestDispatcher("/manager/admin_menu.jsp");
 			rd.forward(request, response);
 		}else {

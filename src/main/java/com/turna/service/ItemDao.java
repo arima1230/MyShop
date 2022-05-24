@@ -6,16 +6,15 @@ import java.util.ArrayList;
 
 import com.turna.dao.DBAccess;
 import com.turna.entity.Item;
-import com.turna.entity.User;
 
 public class ItemDao extends DBAccess {
 
-	public ArrayList<Item> getItemDetail() {
-
+	public ArrayList<Item> getItemDetail( int item_id) {
+		System.out.println(item_id);;
 		ArrayList<Item> list = new ArrayList<Item>();
 
 		// SQL文を作成する
-		String sql = "SELECT * FROM items WHERE id = ";
+		String sql = "SELECT * FROM items WHERE item_id = 1";
 
 		try {
 
@@ -25,22 +24,19 @@ public class ItemDao extends DBAccess {
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			// SQLを発行する
 			ResultSet rs = ps.executeQuery();
-
+			
 			// ResultSetからbeanにユーザ情報を設定する
 			while (rs.next()) {
-				User bean = new User();
-					bean.setUser_id(rs.getInt("user_id"));
-					bean.setUser_name(rs.getString("user_name"));
-					bean.setKana(rs.getString("kana"));
-				    bean.setPostcode(rs.getString("post_code"));
-				    bean.setAdress(rs.getString("adress"));
-					bean.setBuilding(rs.getString("building"));
-				    bean.setRoomnumber(rs.getString("room_number"));
-				    bean.setPhonenumber(rs.getString("phone_number"));
-					bean.setEmail(rs.getString("email"));
+				Item bean = new Item();
+					bean.setItem_id(rs.getInt("item_id"));
+					bean.setItem_code(rs.getString("item_code"));
+					bean.setItem_name(rs.getString("item_name"));
+				    bean.setPrice(rs.getInt("price"));
+					bean.setDetail(rs.getString("detail"));
+				    bean.setStock(rs.getInt("stock"));
+				    bean.setImage_path(rs.getString("image_path"));
 					list.add(bean);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

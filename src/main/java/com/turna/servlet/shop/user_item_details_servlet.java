@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.turna.service.ItemDao;
+
 /**
  * Servlet implementation class user_item_details_servlet
  */
@@ -24,7 +26,11 @@ public class user_item_details_servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
+		req.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html;charset=UTF-8");
+		ItemDao dao = new ItemDao();
+		int item_id = 1;
+		req.setAttribute("list", dao.getItemDetail(item_id));
 		RequestDispatcher rd  = req.getRequestDispatcher("shop/jsp/user_item_details.jsp");
 		rd.forward(req, res);
 	}

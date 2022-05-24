@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import = "java.util.*" %>
+ <%@ page import = "com.turna.entity.Item" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,18 +12,59 @@
   <title>商品詳細画面</title>
 </head>
 <body>
+<style>
+.flex1 {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.flex1 div {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}
+
+.image2 {
+  width: 100px;
+  height: 100px;
+}
+
+.flex2 {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 10px;
+}
+
+.buttonA {
+  margin: 10px;
+}
+
+.buttonB {
+  margin: 10px;
+}
+</style>
 	  <!--ショップホームのリンク作成-->
   <a><img class="image2" src="shop/image/IMG_9550.jpg"></a>
   <!--「商品詳細」の文字表示  -->
   <h3 style="text-align: center">商品詳細</h3>
+ <% ArrayList<Item> list = (ArrayList<Item>)request.getAttribute("list"); %>
+ 
   <!-- 商品画像の表示 -->
   <div class="flex1">
     <div>
       <img class="image" src="shop/image/IMG_9297.jpg">
     </div>
     <!-- 商品詳細説明 -->
+    <%for(int i = 0 ; i < list.size() ; i++){ %>
     <div>
-      <p>商品名</p>
+      <p><%=list.get(i).getItem_name()%></p>
       <p>商品CD</p>
       <p>商品価格</p>
       <p>商品詳細説明</p>
@@ -36,6 +79,7 @@
       <button>カートに追加</button>
     </div>
   </div>
+ <%} %> 
   <!-- 戻る -->
   <div class="flex2">
     <button class="buttonA">戻る</button>

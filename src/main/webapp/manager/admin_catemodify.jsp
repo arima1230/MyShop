@@ -49,7 +49,12 @@
 				</tr>
 			</tbody>
 		</table>
-		
+		<font color = "red">
+		<%if ( request.getAttribute("a") != null ){
+		 String msg = "値を入力してください";%>
+		  <%= msg%>
+		 <% };%>
+		 </font>
 	</form>
 </body>
 </html>

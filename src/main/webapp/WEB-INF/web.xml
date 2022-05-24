@@ -9,4 +9,23 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+   <servlet>
+  			<servlet-name>StockServlet</servlet-name>
+  			<servlet-class>com.turna.servlet.stock.StockServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  			<servlet-name>StockServlet</servlet-name>
+  			<url-pattern>/admin_stock</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  			<servlet-name>StockEditingServlet</servlet-name>
+  			<servlet-class>com.turna.servlet.stock.StockEditingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  			<servlet-name>StockEditingServlet</servlet-name>
+  			<url-pattern>/admin_stock_editing</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

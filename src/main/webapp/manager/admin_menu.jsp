@@ -17,7 +17,8 @@
 			<li><a href="admin_cate.jsp">カテゴリ管理</a></li>
 			<li><a href="admin_product.jsp">商品管理</a></li>
 			<li><a href="admin_order.jsp">オーダー管理</a></li>
-			<li><a href="admin_message.jsp">売上管理</a></li>
+			<li><a href="/MyShop/admin_stock">在庫管理</a></li>
+			<li><a href="admin_sales.jsp">売上管理</a></li>
 		
 
 		</ul>

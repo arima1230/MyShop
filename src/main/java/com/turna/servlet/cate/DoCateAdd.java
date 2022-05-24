@@ -29,12 +29,12 @@ public class DoCateAdd extends HttpServlet {
 		// パラメターを取得
 		int pid = Integer.parseInt(request.getParameter("parentId"));
 		String name = request.getParameter("className");
-
 		// インスタンス化
-		Category cate = new Category(0, name, pid,null,null);
+		Category cate = new Category(0, name, pid);
 		// DBに入れる
 		CategoryDao.insert(cate);
-		//遷移先
+
+		// 遷移先
 		response.sendRedirect("admin_cateselect");
 	}
 

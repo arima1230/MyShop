@@ -30,6 +30,7 @@ public class DoCateUpdate extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		int pid = Integer.parseInt(request.getParameter("parentId"));
 		String name = request.getParameter("className");
+		
 
 		// インスタンス化
 		Category cate = new Category(id, name, pid);

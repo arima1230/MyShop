@@ -23,6 +23,9 @@ public class OrderDayServlet extends HttpServlet {
 		OrderDao dao = new OrderDao();
 		// リクエストにDAOで取得したユーザ情報をセットする
 		req.setAttribute("day", dao.getDay());
+		
+		
+		
 
 		RequestDispatcher rd = req.getRequestDispatcher("admin_order_day.jsp");
 		rd.forward(req, res);

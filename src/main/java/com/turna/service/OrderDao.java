@@ -90,7 +90,7 @@ public class OrderDao extends DBAccess {
 					Order bean = new Order();
 					
 					// SQL文を作成する
-					String sql = "SELECT * FROM orders WHERE create_at LIKE "%";
+					String sql = "SELECT * FROM orders WHERE create_at LIKE =?&";
 					
 					try {
 

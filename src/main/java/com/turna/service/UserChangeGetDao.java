@@ -31,7 +31,7 @@ public class UserChangeGetDao extends DBAccess{
 			return account_name;
 		}
 		
-		public String gget_user_name(String user_id) {
+		public String get_user_name(String user_id) {
 			String sql = "select user_name from users where user_id = ?";
 			String account_name = null;
 			ResultSet rs = null;

@@ -1,4 +1,5 @@
 package com.turna.servlet.order;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.turna.service.OrderDao;
 
-@WebServlet("/manager/admin_order")
-public class OrderServlet extends HttpServlet {
+@WebServlet("/manager/admin_order_day")
+public class OrderDayServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		doPost(req, res);
 	}
@@ -21,9 +22,9 @@ public class OrderServlet extends HttpServlet {
 		// DAOをインスタンス化する
 		OrderDao dao = new OrderDao();
 		// リクエストにDAOで取得したユーザ情報をセットする
-		req.setAttribute("list", dao.getOrderList());
+		req.setAttribute("day", dao.getDay());
 
-		RequestDispatcher rd = req.getRequestDispatcher("admin_order.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("admin_order_day.jsp");
 		rd.forward(req, res);
 	}
 }

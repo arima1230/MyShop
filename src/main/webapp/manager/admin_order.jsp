@@ -7,18 +7,18 @@
 
 <!DOCTYPE html>
 <html>
-<%
-	ArrayList<Order> list = (ArrayList<Order>) request.getAttribute("list");
-	%>
+
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理日付選択画面</title>
 <script src="../js/calendar.js"></script>
 <script src="../js/function.js"></script>
 <script src="../js/jquery-1.12.4.min.js"></script>
 </head>
 <body>  
-<form action="/Myshop/OrderDayServlet?id=<%=list.get(i).getOder_id()%>" method="post">
+
+
+<form action="/manager/admin_order_day" method="post">
 
 <div class="crumb-list">
 		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span
@@ -42,7 +42,7 @@ body {
 }
 </style>
 		
-          <div><input type = "text" value="注文日選択" onclick ="c.show(this)"></div>
+          <div><input type = "text" name = "day" value="注文日選択" onclick ="c.show(this)"></div>
         <input type="submit" name="submit" value="決定"></form>
           
 </body>

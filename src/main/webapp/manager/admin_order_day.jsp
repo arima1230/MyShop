@@ -6,22 +6,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>注文日リスト</title>
 </head>
 <body>
 	<%
 	ArrayList<Order> list = (ArrayList<Order>) request.getAttribute("list");
 	%>
 
-<div>
-      <form>
+<div> <%--検索機能つける --%>
+     発送ステータス <form>
     <select name="発送ステータス">
       <option>未</option>
       <option>発送中</option>
       <option>発送済</option>
     </select></form>
     
-     <form>
+     入金ステータス<form>
     <select name="入金ステータス">
       <option>未</option>
       <option>入金済</option>
@@ -41,7 +41,7 @@
 			<td><%=list.get(i).getDeli_status()%></td>
 			<td><%=list.get(i).getPay_status()%></td>
 			<td>
-				<form action="/Myshop/admin_order_detail?id=<%=list.get(i).getUser_id()%>"
+				<form action="/manager/admin_order_day?order_id=<%=list.get(i).getOrder_id()%>"
 					method="post">
 					<input type="submit" name="submit" value="詳細">
 				</form>
@@ -51,10 +51,8 @@
 	
 	<%
 	}
-	%>
-	
-    
+	%>  
 </div>
-
+<button type="button" onclick="history.back()">戻る</button>
 </body>
 </html>

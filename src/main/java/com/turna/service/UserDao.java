@@ -69,11 +69,11 @@ public class UserDao extends DBAccess {
 					bean.setUser_id(rs.getInt("user_id"));
 					bean.setUser_name(rs.getString("user_name"));
 					bean.setKana(rs.getString("kana"));
-					bean.setPostcode(rs.getString("postcode"));
+					bean.setPostcode(rs.getString("post_code"));
 					bean.setAdress(rs.getString("adress"));
 					bean.setBuilding(rs.getString("building"));
-					bean.setRoomnumber(rs.getString("roomnumber"));
-					bean.setPhonenumber(rs.getString("phonenumber"));
+					bean.setRoomnumber(rs.getString("room_number"));
+					bean.setPhonenumber(rs.getString("phone_number"));
 					bean.setEmail(rs.getString("email"));
 				}
 

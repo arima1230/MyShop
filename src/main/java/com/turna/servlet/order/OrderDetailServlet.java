@@ -15,7 +15,7 @@ import com.turna.service.OrderDao;
 /**
  * @author nakauti
  */
-@WebServlet("/manager/admin_orderday")
+@WebServlet("/manager/admin_order_detail")
 public class OrderDetailServlet extends HttpServlet {
 
 	/**
@@ -46,24 +46,21 @@ public class OrderDetailServlet extends HttpServlet {
 			String building =bean.getBuilding();
 		    String roomnumber= bean.getRoomnumber();
 		    String pay_stutas = bean.getPay_status();
-	
+		    String deli_stutas = bean.getDeli_status();
 					
 		// セッションへユーザ情報をセットする
 			session.setAttribute("order_id", order_id);
 			session.setAttribute("user_id", user_id);
 			session.setAttribute("cart_id", cart_id);
-			session.setAttribute("name", name);
-			session.setAttribute("kana ",kana );
-			session.setAttribute("postcode ",postcode );
+			session.setAttribute("post_code ",post_code );
 			session.setAttribute("adress ",adress );
 			session.setAttribute("building", building);
 			session.setAttribute("roomnumber",roomnumber );
-			session.setAttribute("phonenumber ",phonenumber );
-			session.setAttribute("email ",email );
+			session.setAttribute("pay_status",pay_stutas );
+			session.setAttribute("deli_status",deli_stutas );
 			
-		
-		
+			
 		// 画面の遷移先
-		req.getRequestDispatcher("/manager/admin_order_day.jsp").forward(req, res);
+		req.getRequestDispatcher("/manager/admin_order_detail.jsp").forward(req, res);
 	}
 }

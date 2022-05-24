@@ -11,6 +11,7 @@ public class Order {
 		private String building;
 		private String roomnumber;
 		private String pay_status;
+		private String deli_status;
 		private String create_at;
 		private String update_at;
 
@@ -74,6 +75,13 @@ public class Order {
 		}
 		public void setUpdate_at(String update_at) {
 			this.update_at = update_at;
+		}
+		public String getDeli_status() {
+			return deli_status;
+		}
+		public void setDeli_status(String deli_status) {
+			// TODO 自動生成されたメソッド・スタブ
+			
 		}
 		
 }

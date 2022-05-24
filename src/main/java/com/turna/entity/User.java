@@ -71,8 +71,8 @@ public class User implements Serializable {
 		return post_code;
 	}
 
-	public void setPostcode(String postcode) {
-		this.post_code = postcode;
+	public void setPostcode(String post_code) {
+		this.post_code = post_code;
 	}
 
 	public String getAdress() {
@@ -95,8 +95,8 @@ public class User implements Serializable {
 		return room_number;
 	}
 
-	public void setRoomnumber(String roomnumber) {
-		this.room_number = roomnumber;
+	public void setRoomnumber(String room_number) {
+		this.room_number = room_number;
 	}
 
 	public String getSex() {
@@ -119,8 +119,8 @@ public class User implements Serializable {
 		return phone_number;
 	}
 
-	public void setPhonenumber(String phonenumber) {
-		this.phone_number = phonenumber;
+	public void setPhonenumber(String phone_number) {
+		this.phone_number = phone_number;
 	}
 
 	public String getEmail() {

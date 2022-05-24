@@ -16,7 +16,7 @@
 			<li><a href="/MyShop/manager/admin_user">ユーザ管理</a></li>
 			<li><a href="/MyShop/manager/admin_cateselect">カテゴリ管理</a></li>
 			<li><a href="admin_product.jsp">商品管理</a></li>
-			<li><a href="admin_order.jsp">オーダー管理</a></li>
+			<li><a href="/MyShop/manager/admin_order">オーダー管理</a></li>
 			<li><a href="admin_message.jsp">売上管理</a></li>
 		
 

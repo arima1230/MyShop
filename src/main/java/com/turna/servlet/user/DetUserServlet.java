@@ -1,6 +1,7 @@
 package com.turna.servlet.user;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +16,9 @@ import com.turna.service.UserDao;
 /**
  * @author nakauti
  */
-@WebServlet("/manager/admin_detuserservlet")
-public class DetUserServret extends HttpServlet {
+@WebServlet("/MyShop/admin_detuserservlet")
+public class DetUserServlet extends HttpServlet {
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -30,37 +27,37 @@ public class DetUserServret extends HttpServlet {
 		res.setContentType("text/html;charset=UTF-8");
 		
 		HttpSession session = req.getSession(true);
-		
-		// UserDsoをインスタンス化する
+		// UserDaoをインスタンス化する
 			UserDao dao = new UserDao();
 		// リクエストからユーザIDを取得する
-			int id = Integer.parseInt(req.getParameter("user_id"));
+			int user_id = Integer.parseInt(req.getParameter("user_id"));
 		// リクエストのユーザIDを元に残りの情報ををDAOより取得する
 			User bean = new User();
-			bean = dao. getUser(id);
+			bean = dao. getUser(user_id);
 			String name = bean.getUser_name();
 			String kana = bean.getKana();
-			String postcode = bean.getPostcode();
+			String post_code = bean.getPostcode();
 		    String adress =bean.getAdress();
 			String building =bean.getBuilding();
-		    String roomnumber= bean.getRoomnumber();
-		    String phonenumber = bean.getPhonenumber();
+		    String room_number= bean.getRoomnumber();
+		    String phone_number = bean.getPhonenumber();
 			String email = bean.getEmail();	
 					
 		// セッションへユーザ情報をセットする
-			session.setAttribute("id", id);
+			session.setAttribute("user_id", user_id);
 			session.setAttribute("name", name);
 			session.setAttribute("kana ",kana );
-			session.setAttribute("postcode ",postcode );
+			session.setAttribute("post_code ",post_code );
 			session.setAttribute("adress ",adress );
 			session.setAttribute("building", building);
-			session.setAttribute("roomnumber",roomnumber );
-			session.setAttribute("phonenumber ",phonenumber );
+			session.setAttribute("room_number",room_number );
+			session.setAttribute("phone_number ",phone_number );
 			session.setAttribute("email ",email );
 			
 			
 		// 画面の遷移先
-		req.getRequestDispatcher("/manager/admin_user_detail.jsp").forward(req, res);
+			RequestDispatcher rd = req.getRequestDispatcher("admin_user_detail.jsp");
+			rd.forward(req, res);
 	}
 
 }

@@ -49,41 +49,30 @@ public class UserDao extends DBAccess {
 		return list;
 	}
 	// ユーザを取得する ！危険！消すかも
-		public User getUser(int user_id) {
-			User bean = new User();
+		public String checkAdminr(String account_name , String pass) {
 			// SQL文を作成する
-			String sql = "SELECT * FROM users WHERE user_id = ?";
-			
+			String sql = "SELECT * FROM users WHERE account_name = ? and pass = ?";
+			String msg = null;
 			try {
 
 				// Connectionオブジェクトを取得する
 				connect();
 				// ステートメントを作成する
 				PreparedStatement ps = getConnection().prepareStatement(sql);
-				ps.setInt(1, user_id);
+				ps.setString(1, account_name);
+				ps.setString(2, pass);
 				// SQLを発行する
 				ResultSet rs = ps.executeQuery();
-
-				// ResultSetからbeanにユーザ情報を設定する
 				while (rs.next()) {
-					bean.setUser_id(rs.getInt("user_id"));
-					bean.setUser_name(rs.getString("user_name"));
-					bean.setKana(rs.getString("kana"));
-					bean.setPostcode(rs.getString("post_code"));
-					bean.setAdress(rs.getString("adress"));
-					bean.setBuilding(rs.getString("building"));
-					bean.setRoomnumber(rs.getString("room_number"));
-					bean.setPhonenumber(rs.getString("phone_number"));
-					bean.setEmail(rs.getString("email"));
+					 msg = "ok";
 				}
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				disconnect();
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					disconnect();
+				}
+				return msg;
 			}
-			return bean;
-		}
 }
 
 	/**

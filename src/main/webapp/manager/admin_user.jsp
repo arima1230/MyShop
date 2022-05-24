@@ -31,7 +31,7 @@
 			<td><%=list.get(i).getEmail()%></td>
 			<td><%=list.get(i).getPhonenumber()%></td>
 			<td>
-				<form action="/MyShop/admin_detuserservlet?user_id=<%=list.get(i).getUser_id()%>"
+				<form action="/MyShop/manager/admin_detuserservlet?user_id=<%=list.get(i).getUser_id()%>"
 					method="post">
 					<input type="submit" name="submit" value="詳細">
 				</form>

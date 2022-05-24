@@ -33,8 +33,8 @@ public class CategoryDao {
 			// SQL文を発行する
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				Category cate = new Category(rs.getInt("cate_id"), rs.getString("cate_name"),
-						rs.getInt("cate_parent_id"));
+				Category cate = new Category(rs.getInt("category_id"), rs.getString("category_name"),
+						rs.getInt("category_parents_id"));
 				list.add(cate);
 			}
 		} catch (SQLException e) {
@@ -53,8 +53,8 @@ public class CategoryDao {
 	 * @return
 	 */
 	public static int insert(Category cate) {
-		String sql = "insert into categories values(null,?,?,null,null)";
-		Object[] params = { cate.getCate_name(), cate.getCate_parent_id() };
+		String sql = "insert into categories(category_id,category_name,category_parents_id) values(null,?,?)";
+		Object[] params = { cate.getCategory_name(), cate.getCategory_parents_id() };
 		return Basedao.exectuIUD(sql, params);
 	}
 
@@ -73,15 +73,15 @@ public class CategoryDao {
 		// SQLを設定する
 		PreparedStatement ps = null;
 
-		String sql = "select * from categories where cate_id=?";
+		String sql = "select * from categories where category_id=?";
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				cate = new Category(rs.getInt("cate_id"), rs.getString("cate_name"), rs.getInt("cate_parent_id"), null,
-						null);
+				cate = new Category(rs.getInt("category_id"), rs.getString("category_name"),
+						rs.getInt("category_parents_id"));
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
@@ -100,8 +100,20 @@ public class CategoryDao {
 	 * @return
 	 */
 	public static int update(Category cate) {
-		String sql = "update categories set cate_name=?,cate_parent_id=? where cate_id =?";
-		Object[] params = { cate.getCate_name(), cate.getCate_parent_id(), cate.getCate_id() };
+		String sql = "update categories set category_name=?,category_parents_id=? where category_id =?";
+		Object[] params = { cate.getCategory_name(), cate.getCategory_parents_id(), cate.getCategory_id() };
+		return Basedao.exectuIUD(sql, params);
+	}
+
+	/**
+	 * カテゴリの削除
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public static int del(int id) {
+		String sql = "delete from categories where  category_id =?";
+		Object[] params = { id };
 		return Basedao.exectuIUD(sql, params);
 	}
 

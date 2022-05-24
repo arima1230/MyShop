@@ -37,8 +37,8 @@ p .error {
 					<td><select name="parentId">
 							<option value="0" selected="selected">親分類</option>
 							<c:forEach var="cate" items="${catelist }">
-								<c:if test="${cate.cate_parent_id == 0}">
-									<option value="${cate.cate_id }">${ cate.cate_name}</option>
+								<c:if test="${cate.category_parents_id == 0}">
+									<option value="${cate.category_id }">${ cate.category_name}</option>
 								</c:if>
 							</c:forEach>
 					</select></td>
@@ -68,23 +68,30 @@ p .error {
 			</tr>
 
 			<c:forEach var="cate" items="${catelist }">
-				<c:if test="${cate.cate_parent_id == 0 }">
+				<c:if test="${cate.category_parents_id == 0 }">
 					<tr>
-						<td>${cate.cate_id }</td>
-						<td>|-${cate.cate_name }</td>
-						<td><a href="admin_tocateupdate?id=${cate.cate_id }">変更</a><a href="">削除</a></td>
+						<td>${cate.category_id }</td>
+						<td>|-${cate.category_name }</td>
+						<td><a href="admin_tocateupdate?id=${cate.category_id }">変更</a><a href="javascript:catedel(${cate.category_id })">削除</a></td>
 					</tr>
 					<c:forEach var="ccate" items="${catelist }">
-						<c:if test="${ccate.cate_parent_id == cate.cate_id }">
+						<c:if test="${ccate.category_parents_id == cate.category_id }">
 							<tr>
-								<td>${ccate.cate_id }</td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-${ccate.cate_name }</td>
-								<td><a href="admin_tocateupdate?id=${ccate.cate_id }">変更</a><a href="">削除</a></td>
+								<td>${ccate.category_id }</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-${ccate.category_name }</td>
+								<td><a href="admin_tocateupdate?id=${ccate.category_id }">変更</a><a href="javascript:catedel(${ccate.category_id })">削除</a></td>
 							</tr>
 						</c:if>
 					</c:forEach>
 				</c:if>
 			</c:forEach>
+			<script>
+				function catedel(id) {
+					if (confirm("削除しますか")) {
+						location.href = "admin_docatedel?id=" + id;
+					}
+				}
+			</script>
 		</table>
 		<div class="list-page"></div>
 	</div>

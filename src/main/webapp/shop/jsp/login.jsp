@@ -5,21 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel = "stylesheet" type = "text/css" href ="../css/login.css ">
-<link rel = "stylesheet" type = "text/css" href ="../css/login.css ">
 </head>
 <body>
-
+<style>
+label{
+    display: inline-block;
+    text-align: right;
+    width: 90px;
+}
+</style>
 <div align = center>
  <h2>管理者ログイン</h2>
 	<form method="POST" action="/MyShop/user/user_login" name="loginform">
 	        <p>
 	        <label for="uid">ID:</label>
-	        <input type="text" name="account_name"  />
+	        <input type="text" name="account_name"  required pattern ="^[0-9A-Za-z]+$"/>
 	        </p>
 	        <p>
-	        <label for="pwd">パスワード:</label>
-	        <input type="password" name="pass"  maxlength="16" />
+	        <label style = diplay for="pwd">パスワード:</label>
+	        <input type="password" name="pass"  maxlength="16" required pattern = "^[0-9A-Za-z]+$"/>
 	        </p>
 	        <input type="submit" value="ログイン"  />
 	       

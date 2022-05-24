@@ -16,7 +16,7 @@
 	</div>
 	<form action="/MyShop/manager/admin_docateupdate" method="post"
 		id="myform" name="myform">
-		<input type="hidden" name="id" value="${cate1.cate_id }">
+		<input type="hidden" name="id" value="${cate1.category_id }">
 		<table>
 			<tbody>
 
@@ -25,12 +25,12 @@
 					<td><select name="parentId">
 							<option value="0">親分類</option>
 							<c:forEach var="cate" items="${catelist }">
-								<c:if test="${cate.cate_parent_id == 0}">
-									<c:if test="${cate1.cate_parent_id == cate.cate_id}">
-										<option value="${cate.cate_id }" selected="selected">${ cate.cate_name}</option>
+								<c:if test="${cate.category_parents_id == 0}">
+									<c:if test="${cate1.category_parents_id == cate.category_id}">
+										<option value="${cate.category_id }" selected="selected">${ cate.category_name}</option>
 									</c:if>
-									<c:if test="${cate1.cate_parent_id != cate.cate_id}">
-										<option value="${cate.cate_id }">${ cate.cate_name}</option>
+									<c:if test="${cate1.category_parents_id != cate.category_id}">
+										<option value="${cate.category_id }">${ cate.category_name}</option>
 									</c:if>
 								</c:if>
 							</c:forEach>
@@ -40,7 +40,7 @@
 				<tr>
 					<th>カテゴリ名：</th>
 					<td><input id="title" name="className" size="30"
-						value="${cate1.cate_name }" type="text"></td>
+						value="${cate1.category_name }" type="text"></td>
 				</tr>
 				<tr>
 					<th></th>

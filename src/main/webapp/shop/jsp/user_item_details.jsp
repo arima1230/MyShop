@@ -4,17 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="shop/css/user_item_details.css">
+  <title>商品詳細画面</title>
 </head>
 <body>
 	  <!--ショップホームのリンク作成-->
-  <a><img class="image2" src="IMG_9550.jpg"></a>
+  <a><img class="image2" src="shop/image/IMG_9550.jpg"></a>
   <!--「商品詳細」の文字表示  -->
   <h3 style="text-align: center">商品詳細</h3>
   <!-- 商品画像の表示 -->
   <div class="flex1">
     <div>
-      <img class="image" src="IMG_9297.jpg">
+      <img class="image" src="shop/image/IMG_9297.jpg">
     </div>
     <!-- 商品詳細説明 -->
     <div>
@@ -38,5 +41,6 @@
     <button class="buttonA">戻る</button>
     <!-- カートに移動 -->
     <button class="buttonB" style="float: right;">カートに移動</button>
+    </div>
 </body>
 </html>

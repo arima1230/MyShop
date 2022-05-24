@@ -9,4 +9,12 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+<servlet-name>DetailUserServlet</servlet-name>
+<servlet-class>DetailUserServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>DetailUserServlet</servlet-name>
+<url-pattern>/detailuser</url-pattern>
+</servlet-mapping>
 </web-app>

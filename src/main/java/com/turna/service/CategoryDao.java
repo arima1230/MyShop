@@ -116,7 +116,7 @@ public class CategoryDao {
 		Object[] params = { id };
 		return Basedao.exectuIUD(sql, params);
 	}
-	/**
+	/** 
 	 * 
 	 * カテゴリを検索：親分類と子分類
 	 * 

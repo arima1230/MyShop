@@ -35,5 +35,4 @@ public class ToItemDel extends HttpServlet {
 		// 遷移先
 		request.getRequestDispatcher("admin_itemdel.jsp").forward(request, response);
 	}
-
 }

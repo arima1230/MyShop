@@ -43,5 +43,4 @@ public class ToItemUpdate extends HttpServlet {
 		// 遷移先
 		request.getRequestDispatcher("admin_itemmodify.jsp").forward(request, response);
 	}
-
 }

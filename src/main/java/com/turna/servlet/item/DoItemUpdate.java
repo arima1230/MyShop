@@ -111,7 +111,6 @@ public class DoItemUpdate extends HttpServlet {
 			out.println("location.href='/MyShop1/manager/admin_toitemupdate?id=" + id + "'");
 			out.println("</script>");
 		}
-
 	}
 
 }

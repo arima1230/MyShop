@@ -16,7 +16,6 @@ import com.turna.service.ItemDao;
  */
 @WebServlet("/manager/admin_doitemdel")
 public class DoItemDel extends HttpServlet {
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)

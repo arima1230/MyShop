@@ -97,7 +97,6 @@ public class DoItemAdd extends HttpServlet {
 			out.println("location.href='/MyShop/manager/admin_toitemadd'");
 			out.println("</script>");
 		}
-
 	}
 
 }

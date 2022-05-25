@@ -14,8 +14,8 @@ import com.turna.service.ItemDao;
 /**
  * Servlet implementation class user_item_details_servlet
  */
-@WebServlet("/user_item_details_servlet")
-public class user_item_details_servlet extends HttpServlet {
+@WebServlet("/UserItemDetailsServlet")
+public class UserItemDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -29,9 +29,10 @@ public class user_item_details_servlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html;charset=UTF-8");
 		ItemDao dao = new ItemDao();
+		//ここでトップから送られてきたIDを受け取る
 		int item_id = 1;
 		req.setAttribute("list", dao.getItemDetail(item_id));
-		RequestDispatcher rd  = req.getRequestDispatcher("shop/jsp/user_item_details.jsp");
+		RequestDispatcher rd  = req.getRequestDispatcher("shop/jsp/UserItemDetails.jsp");
 		rd.forward(req, res);
 	}
 

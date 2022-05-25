@@ -14,9 +14,8 @@ public class CartDao extends DBAccess {
 			connect();
 			// ステートメントを作成する
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			// SQLを発行する
-			ps.executeQuery();
-			count = 1;
+			count =ps.executeUpdate();
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

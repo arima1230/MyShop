@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>商品削除</title>
 </head>
-<body>
+<body> 
 	<div class="crumb-list">
 		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span
 			class="crumb-step">&gt;</span><a class="crumb-name"

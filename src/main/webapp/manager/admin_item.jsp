@@ -4,7 +4,7 @@
 <%@ include file="admin_menu.jsp"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>商品管理</title>
 <script src="js/function.js"></script>

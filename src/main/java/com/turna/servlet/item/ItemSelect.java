@@ -30,5 +30,5 @@ public class ItemSelect extends HttpServlet {
 				// 遷移先
 				request.getRequestDispatcher("admin_item.jsp").forward(request, response);
 	}
-}
+} 
 

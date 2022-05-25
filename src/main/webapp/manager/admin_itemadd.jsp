@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>商品追加</title>
-</head>
+</head> 
 <body>
 	<div class="crumb-list">
 		<a href="/MyShop/manager/admin_index.jsp">ホーム</a><span

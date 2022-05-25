@@ -116,5 +116,45 @@ public class CategoryDao {
 		Object[] params = { id };
 		return Basedao.exectuIUD(sql, params);
 	}
+	/**
+	 * 
+	 * カテゴリを検索：親分類と子分類
+	 * 
+	 * @param flag
+	 * @return
+	 */
 
+	public static ArrayList<Category> selectCat(String flag) {
+		ArrayList<Category> list = new ArrayList<Category>();
+		// 実際の値を取得
+		ResultSet rs = null;
+		// DB接続
+		Connection conn = Basedao.getconn();
+
+		PreparedStatement ps = null;
+		try {
+			String sql = null;
+			if (flag != null && flag.equals("father")) {
+				sql = "select * from categories where category_parents_id=0";
+			} else {
+				sql = "select * from categories where category_parents_id!=0";
+			}
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Category cate = new Category(rs.getInt("category_id"), rs.getString("category_name"),
+						rs.getInt("category_parents_id"));
+				list.add(cate);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Basedao.closeall(rs, ps, conn);
+		}
+
+		return list;
+	}
 }

@@ -1,104 +1,36 @@
 package com.turna.service;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
-import com.turna.dao.Basedao;
-import com.turna.entity.User;
+import com.turna.dao.DBAccess;
 
-public class UserDao {
+public class UserDao extends DBAccess {
 
-	/**
-	 * ユーザの追加
-	 * 
-	 * @param u
-	 * @return
-	 */
-	public static int insert(User u) {
-		String sql = "insert into SHOP_USER values(?,?,?,?,DATE_FORMAT(?,'%Y-%m-%d'),?,?,?,?,?)";
-		Object[] params = { u.getUser_id(), u.getUser_name(), u.getUser_password(), u.getUser_sex(),
-				u.getUser_birthday(), u.getUser_idenity_code(), u.getUser_email(), u.getUser_phone(),
-				u.getUser_address(), u.getUser_status() };
-		return Basedao.exectuIUD(sql, params);
-	}
-
-	/**
-	 * ユーザ情報の表示
-	 * 
-	 * @return
-	 */
-	public static ArrayList<User> selectAll() {
-		ArrayList<User> list = new ArrayList<User>();
-
-		// 実際の値を取得
-		ResultSet rs = null;
-		// DB接続
-		Connection conn = Basedao.getconn();
-
-		// SQLを設定する
-		PreparedStatement ps = null;
-
-		try {
-			String sql = "select * from SHOP_USER order by user_birthday";
-			ps = conn.prepareStatement(sql);
-			// SQL文を発行する
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				User u = new User(rs.getString("user_id"), rs.getString("user_name"), rs.getString("user_password"),
-						rs.getString("user_sex"), rs.getString("user_birthday"), rs.getString("user_idenity_code"),
-						rs.getString("user_email"), rs.getString("user_phone"), rs.getString("user_address"),
-						rs.getInt("user_status"));
-				list.add(u);
+		public String checkAdmin(String account_name , String pass) {
+			// SQL文を作成する
+			String sql = "SELECT * FROM users WHERE account_name = ? and pass = ?";
+			String msg = null;
+			try {
+				// Connectionオブジェクトを取得する
+				connect();
+				// ステートメントを作成する
+				PreparedStatement ps = getConnection().prepareStatement(sql);
+				ps.setString(1, account_name);
+				ps.setString(2, pass);
+				// SQLを発行する
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					 msg = "ok";
+				}
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					disconnect();
+				}
+				return msg;
 			}
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		} finally {
-			Basedao.closeall(rs, ps, conn);
-		}
-
-		return list;
-	}
-
-	/**
-	 * 
-	 * idによって
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public static int selectById(String id) {
-		int count = 0;
-
-		// 実際の値を取得
-		ResultSet rs = null;
-		// DB接続
-		Connection conn = Basedao.getconn();
-
-		// SQLを設定する
-		PreparedStatement ps = null;
-
-		// SQL文を発行する
-		try {
-			String sql = "select count(*) from SHOP_USER where user_id =?";
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, id);
-
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				count = rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		} finally {
-			Basedao.closeall(rs, ps, conn);
-		}
-
-		return count;
-	}
 }
+
+
+

@@ -2,16 +2,19 @@ package com.turna.servlet.user;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.turna.service.UserDao;
+
 /**
  * @author fu.zhirao
  */
-@WebServlet("/login")
+@WebServlet("/user/user_login")
 public class Login extends HttpServlet {
 
 	/**
@@ -25,10 +28,22 @@ public class Login extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		int userid = Integer.parseInt(request.getParameter("userId"));
-		String password = request.getParameter("passWord");
+		String account_name = String.valueOf(request.getParameter("account_name"));
+		String pass = request.getParameter("pass");
+		System.out.println(account_name);
+		System.out.println(pass);;
+		UserDao dao = new UserDao();
+		if(dao.checkAdmin(account_name, pass) == "ok") {
+			RequestDispatcher rd = request.getRequestDispatcher("/manager/admin_menu.jsp");
+			rd.forward(request, response);
+			return;
+		}else {
+			String msg = "ユーザー名、またはパスワードが間違っています。";
+			request.setAttribute("error", msg);
+		}
 		
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/shop/jsp/login.jsp");
+		rd.forward(request, response);
 	}
 
 }

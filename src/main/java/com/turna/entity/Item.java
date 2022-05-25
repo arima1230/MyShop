@@ -2,16 +2,16 @@ package com.turna.entity;
 
 public class Item {
 	private int item_id;
-	private int item_code;
+	private String item_code;
 	private String item_name;
 	private int price;
 	private int category_id;
 	private String detail;
 	private int stock;
 	private String image_path;
-	private int deleteflag;
+	private int delete_flag;
 
-	public Item(int item_id, int item_code, String item_name, int price, int category_id, String detail, int stock,
+	public Item(int item_id, String item_code, String item_name, int price, int category_id, String detail, int stock,
 			String image_path, int deleteflag) {
 		super();
 		this.item_id = item_id;
@@ -22,7 +22,7 @@ public class Item {
 		this.detail = detail;
 		this.stock = stock;
 		this.image_path = image_path;
-		this.deleteflag = deleteflag;
+		this.delete_flag = deleteflag;
 	}
 
 	public int getItem_id() {
@@ -33,11 +33,11 @@ public class Item {
 		this.item_id = item_id;
 	}
 
-	public int getItem_code() {
+	public String getItem_code() {
 		return item_code;
 	}
 
-	public void setItem_code(int item_code) {
+	public void setItem_code(String item_code) {
 		this.item_code = item_code;
 	}
 
@@ -89,12 +89,12 @@ public class Item {
 		this.image_path = image_path;
 	}
 
-	public int getDeleteflag() {
-		return deleteflag;
+	public int getDelete_flag() {
+		return delete_flag;
 	}
 
-	public void setDeleteflag(int deleteflag) {
-		this.deleteflag = deleteflag;
+	public void setDelete_flag(int deleteflag) {
+		this.delete_flag = deleteflag;
 	}
 
 }

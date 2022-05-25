@@ -30,9 +30,9 @@ public class ItemDao {
 			// SQL文を発行する
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				Item item = new Item(rs.getInt("item_id"), rs.getInt("item_code"), rs.getString("item_name"),
+				Item item = new Item(rs.getInt("item_id"), rs.getString("item_code"), rs.getString("item_name"),
 						rs.getInt("price"), rs.getInt("category_id"), rs.getString("detail"), rs.getInt("stock"),
-						rs.getString("image_path"), rs.getInt("deleteflag"));
+						rs.getString("image_path"), rs.getInt("delete_flag"));
 				list.add(item);
 			}
 		} catch (SQLException e) {
@@ -53,7 +53,7 @@ public class ItemDao {
 	public static int insert(Item item) {
 		String sql = "insert into items(item_id,item_code,item_name,price,category_id,detail,stock,image_path,deleteflag) values(null,?,?,?,?,?,?,?,?)";
 		Object[] params = { item.getItem_code(), item.getItem_name(), item.getPrice(), item.getCategory_id(),
-				item.getDetail(), item.getStock(), item.getImage_path(), item.getDeleteflag() };
+				item.getDetail(), item.getStock(), item.getImage_path(), item.getDelete_flag() };
 		return Basedao.exectuIUD(sql, params);
 	}
 
@@ -79,9 +79,9 @@ public class ItemDao {
 			// SQL文を発行する
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				item = new Item(rs.getInt("item_id"), rs.getInt("item_code"), rs.getString("item_name"),
+				item = new Item(rs.getInt("item_id"), rs.getString("item_code"), rs.getString("item_name"),
 						rs.getInt("price"), rs.getInt("category_id"), rs.getString("detail"), rs.getInt("stock"),
-						rs.getString("image_path"), rs.getInt("deleteflag"));
+						rs.getString("image_path"), rs.getInt("delete_flag"));
 			}
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
@@ -101,7 +101,7 @@ public class ItemDao {
 	public static int update(Item it) {
 		String sql = "update items set item_code=?,item_name=?,price=?,category_id=?,detail=?,stock=?,image_path=?,deleteflag=? where item_id =?";
 		Object[] params = { it.getItem_code(), it.getItem_name(), it.getPrice(), it.getCategory_id(), it.getDetail(),
-				it.getStock(), it.getImage_path(), it.getDeleteflag(), it.getItem_id() };
+				it.getStock(), it.getImage_path(), it.getDelete_flag(), it.getItem_id() };
 		return Basedao.exectuIUD(sql, params);
 	}
 
@@ -112,7 +112,7 @@ public class ItemDao {
 	 * @return
 	 */
 	public static int del(Item it) {
-		String sql = "update items set deleteflag = '1' WHERE item_code =? and item_name=?";
+		String sql = "update items set delete_flag = '1' WHERE item_code =? and item_name=?";
 		Object[] params = { it.getItem_code(), it.getItem_name() };
 		return Basedao.exectuIUD(sql, params);
 	}

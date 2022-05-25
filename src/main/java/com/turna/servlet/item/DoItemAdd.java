@@ -80,7 +80,7 @@ public class DoItemAdd extends HttpServlet {
 		String stock = reql.getParameter("itemStock");
 
 		// Itemをインスタンス化
-		Item item = new Item(0, Integer.parseInt(icode), iname, Integer.parseInt(price),
+		Item item = new Item(0, String.valueOf(icode), iname, Integer.parseInt(price),
 				Integer.parseInt(id.split("-")[0]), desc, Integer.parseInt(stock), fname, 0);
 
 		// DBに入れる

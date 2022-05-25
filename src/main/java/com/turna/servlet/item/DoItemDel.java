@@ -37,22 +37,22 @@ public class DoItemDel extends HttpServlet {
 		String stock = request.getParameter("itemStock");
 		String def = request.getParameter("deleteFlag");
 
-		int deleteflag = 0;
+		int delete_flag = 0;
 		if (def != null) {
-			deleteflag = Integer.parseInt(def);
+			delete_flag = Integer.parseInt(def);
 		}
 
 		// Itemをインスタンス化
 		Item item = new Item(
 				Integer.parseInt(id), 
-				Integer.parseInt(icode), 
+				String.	valueOf(icode), 
 				iname,
 				Integer.parseInt(price),
-				Integer.parseInt(pid.split("-")[0]),
+				Integer.parseInt(pid),
 				desc,
 				Integer.parseInt(stock), 
 				fname, 
-				deleteflag);
+				delete_flag);
 
 		// DBに入れる
 		int count = ItemDao.del(item);

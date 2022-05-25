@@ -18,8 +18,8 @@
 	<form action="/MyShop/manager/admin_doitemdel" method="get"
 		enctype="multipart/form-data" id="myform" name="myform">
 		<input type="hidden" name="itemId" value="${item.item_id }"> <input
-			type="hidden" name="deleteFlag" value="${item.deleteflag }">
-		<input type="hidden" name="parenId" value="${item.category_id }">
+			type="hidden" name="deleteFlag" value="${item.delete_flag }">
+		<input type="hidden" name="parentId" value="${item.category_id }">
 		<input type="hidden" name="photo" value="${item.image_path }">
 		<input type="hidden" name="itemPrice" value="${item.price }">
 		<input type="hidden" name="itemDesc" value="${item.detail }">

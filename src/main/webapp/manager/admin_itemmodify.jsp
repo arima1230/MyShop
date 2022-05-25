@@ -21,7 +21,7 @@
 		<input type="hidden" name="itemStock" value="${item.stock }">
 		<table>
 			<tbody>
-			
+			 
 				<tr>
 					<th>商品名：</th>
 					<td><input id="title" name="itemName" size="50" value="${item.item_name }"

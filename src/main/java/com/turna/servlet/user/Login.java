@@ -36,6 +36,7 @@ public class Login extends HttpServlet {
 		if(dao.checkAdmin(account_name, pass) == "ok") {
 			RequestDispatcher rd = request.getRequestDispatcher("/manager/admin_menu.jsp");
 			rd.forward(request, response);
+			return;
 		}else {
 			String msg = "ユーザー名、またはパスワードが間違っています。";
 			request.setAttribute("error", msg);

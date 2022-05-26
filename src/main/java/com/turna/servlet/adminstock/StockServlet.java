@@ -1,4 +1,4 @@
-package com.turna.servlet.stock;
+package com.turna.servlet.adminstock;
 
 import java.io.IOException;
 

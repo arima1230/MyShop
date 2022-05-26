@@ -18,35 +18,29 @@
   justify-content: flex-start;
   padding: 20px;
 }
-
 .flex1  div {
   width: 100%;
   margin: 10px;
   padding: 10px;
 }
-
 .image {
   width: 200px;
   height: 200px;
 }
-
 .image2 {
   margin: 10px;
   width: 100px;
   height: 100px;
 }
-
 .flex2 {
   display: flex;
   justify-content: flex-end;
   margin: 10px;
   padding: 10px;
 }
-
 .buttonA {
   margin: 10px;
 }
-
 .buttonB {
   margin: 10px;
 }
@@ -57,6 +51,9 @@
   <h3 style="text-align: center">商品詳細</h3>
  <% ArrayList<Item> list = (ArrayList<Item>)request.getAttribute("list"); %>
  <% session.setAttribute("item_id" , list.get(0).getItem_id() ); %>
+ <% session.setAttribute("item_name" , list.get(0).getItem_name() ); %>
+ <% session.setAttribute("price" , list.get(0).getPrice() ); %>
+ <% session.setAttribute("image_path" , list.get(0).getImage_path() ); %>
   <!-- 商品画像の表示 -->
   <div class="flex1">
     <!-- 商品詳細説明 -->

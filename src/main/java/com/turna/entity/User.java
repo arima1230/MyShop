@@ -1,41 +1,45 @@
 package com.turna.entity;
+import java.io.Serializable;
 
-/**
- * @author fu.zhirao
- *
- */
-public class User {
-	private String user_id;
+public class User implements Serializable {
+	
+	private int user_id;
 	private String user_name;
-	private String user_password;
-	private String user_sex;
-	private String user_birthday;
-	private String user_idenity_code;
-	private String user_email;
-	private String user_phone;
-	private String user_address;
-	private int user_status;
+	private String kana;
+	private String pass;
+	private String post_code;
+	private String adress;
+	private String building;
+	private String room_number;
+	private String sex;
+	private String birthday;
+	private String phone_number;
+	private String email;
 
-	public User(String user_id, String user_name, String user_password, String user_sex, String user_birthday,
-			String user_idenity_code, String user_email, String user_phone, String user_address, int user_status) {
-		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
-		this.user_password = user_password;
-		this.user_sex = user_sex;
-		this.user_birthday = user_birthday;
-		this.user_idenity_code = user_idenity_code;
-		this.user_email = user_email;
-		this.user_phone = user_phone;
-		this.user_address = user_address;
-		this.user_status = user_status;
-	}
+	//public User(int user_id, String user_name, String kana, String pass, String postcode, String adress,
+			//String building, String roomnumber, String sex, String birthday, String phonenumber, String email) {
+		//super();
+		
+//		this.user_id = user_id;
+//		this.user_name = user_name;
+//		this.kana = kana;
+//		this.pass = pass;
+//		this.postcode = postcode;
+//		this.adress = adress;
+//		this.building = building;
+//		this.roomnumber = roomnumber;
+//		this.sex = sex;
+//		this.birthday = birthday;
+//		this.phonenumber = phonenumber;
+//		this.email = email;
+//	}
 
-	public String getUser_id() {
+	
+	public int getUser_id() {;
 		return user_id;
 	}
 
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 
@@ -47,68 +51,84 @@ public class User {
 		this.user_name = user_name;
 	}
 
-	public String getUser_password() {
-		return user_password;
+	public String getKana() {
+		return kana;
 	}
 
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+	public void setKana(String kana) {
+		this.kana = kana;
 	}
 
-	public String getUser_sex() {
-		return user_sex;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setUser_sex(String user_sex) {
-		this.user_sex = user_sex;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
-	public String getUser_birthday() {
-		return user_birthday;
+	public String getPostcode() {
+		return post_code;
 	}
 
-	public void setUser_birthday(String user_birthday) {
-		this.user_birthday = user_birthday;
+	public void setPostcode(String post_code) {
+		this.post_code = post_code;
 	}
 
-	public String getUser_idenity_code() {
-		return user_idenity_code;
+	public String getAdress() {
+		return adress;
 	}
 
-	public void setUser_idenity_code(String user_idenity_code) {
-		this.user_idenity_code = user_idenity_code;
+	public void setAdress(String adress) {
+		this.adress = adress;
 	}
 
-	public String getUser_email() {
-		return user_email;
+	public String getBuilding() {
+		return building;
 	}
 
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+	public void setBuilding(String building) {
+		this.building = building;
 	}
 
-	public String getUser_phone() {
-		return user_phone;
+	public String getRoomnumber() {
+		return room_number;
 	}
 
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
+	public void setRoomnumber(String room_number) {
+		this.room_number = room_number;
 	}
 
-	public String getUser_address() {
-		return user_address;
+	public String getSex() {
+		return sex;
 	}
 
-	public void setUser_address(String user_address) {
-		this.user_address = user_address;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
-	public int getUser_status() {
-		return user_status;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setUser_status(int user_status) {
-		this.user_status = user_status;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getPhonenumber() {
+		return phone_number;
+	}
+
+	public void setPhonenumber(String phone_number) {
+		this.phone_number = phone_number;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

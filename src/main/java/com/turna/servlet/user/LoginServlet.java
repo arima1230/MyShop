@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.turna.service.UserDao;
+import com.turna.service.UserLoginDao;
 
 /**
  * @author fu.zhirao
@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		System.out.println(account_name);
 		System.out.println(pass);;
-		UserDao dao = new UserDao();
+		UserLoginDao dao = new UserLoginDao();
 		if(dao.checkAdmin(account_name, pass) == "ok") {
 			RequestDispatcher rd = request.getRequestDispatcher("/manager/admin_menu.jsp");
 			rd.forward(request, response);

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBAccess {
-	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+	private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static final String DB_URL = "jdbc:mysql://localhost/shopping?useUnicode=true&characterEncoding=utf8";
 	private static final String DB_USER = "root";
 	private static final String DB_PWD = "";

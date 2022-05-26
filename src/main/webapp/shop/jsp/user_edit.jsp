@@ -1,11 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
-<title>会員情報登録</title>
+<title>会員情報変更</title>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
+<%
+String sex = (String) request.getAttribute("sex");
+%>
 
 
 </head>
@@ -14,13 +16,17 @@
 <input type="submit" name= shophome value="ショップホーム">
 </form>
 
-<p>会員情報登録</p>
+<p>会員情報変更</p>
 
-<form method="post" name=a  action=" /MyShop/DoUserInput">
+<form method="post" name=a  action=" /MyShop/DoUserEdit">
 
-<c:if test="${message != null }">
-<%=request.getAttribute("message") %>
+<div>
+<p>
+<c:if test="${message1 != null }">
+<%=request.getAttribute("message1") %>
 </c:if>
+</p>
+</div>
 
 <div>
 <p>
@@ -133,7 +139,15 @@
 </p>
 </div>
 
-<input type="submit" value="登録"> 
+<div>
+<p>
+<c:if test="${message != null }">
+<%=request.getAttribute("message") %>
+</c:if>
+</p>
+</div>
+
+<input type="submit" value="変更"> 
 <input type="button" value="戻る" onClick="history.go(-1)">
 
 </form>

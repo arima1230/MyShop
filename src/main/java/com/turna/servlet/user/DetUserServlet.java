@@ -13,15 +13,16 @@ import javax.servlet.http.HttpSession;
 import com.turna.entity.User;
 import com.turna.service.UserDao;
 
-/**
- * @author nakauti
- */
-@WebServlet("/MyShop/admin_detuserservlet")
+@WebServlet("/detuserservlet")
 public class DetUserServlet extends HttpServlet {
-
-	protected void doGet(HttpServletRequest req, HttpServletResponse res)
+	public void doGet(HttpServletRequest req, HttpServletResponse res) 
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(req, res);
+	}
+
+	public void doPost(HttpServletRequest req, HttpServletResponse res) 
+			throws ServletException, IOException {
+		
 		// 文字コードを設定する
 		req.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html;charset=UTF-8");
@@ -45,7 +46,7 @@ public class DetUserServlet extends HttpServlet {
 					
 		// セッションへユーザ情報をセットする
 			session.setAttribute("user_id", user_id);
-			session.setAttribute("name", name);
+			session.setAttribute("user_name", name);
 			session.setAttribute("kana ",kana );
 			session.setAttribute("post_code ",post_code );
 			session.setAttribute("adress ",adress );
@@ -56,7 +57,7 @@ public class DetUserServlet extends HttpServlet {
 			
 			
 		// 画面の遷移先
-			RequestDispatcher rd = req.getRequestDispatcher("admin_user_detail.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/manager/admin_user_detail.jsp");
 			rd.forward(req, res);
 	}
 

@@ -6,10 +6,10 @@ public class Order {
 		private int order_id;
 		private int user_id;
 		private int cart_id;
-		private String postcode;
+		private String post_code;
 		private String adress;
 		private String building;
-		private String roomnumber;
+		private String room_number;
 		private String pay_status;
 		private String deli_status;
 		private String create_at;
@@ -35,10 +35,10 @@ public class Order {
 			this.cart_id = cart_id;
 		}
 		public String getPostcode() {
-			return postcode;
+			return post_code;
 		}
 		public void setPostcode(String postcode) {
-			this.postcode = postcode;
+			this.post_code = postcode;
 		}
 		public String getAdress() {
 			return adress;
@@ -53,10 +53,10 @@ public class Order {
 			this.building = building;
 		}
 		public String getRoomnumber() {
-			return roomnumber;
+			return room_number;
 		}
 		public void setRoomnumber(String roomnumber) {
-			this.roomnumber = roomnumber;
+			this.room_number = roomnumber;
 		}
 		public String getPay_status() {
 			return pay_status;
@@ -83,5 +83,6 @@ public class Order {
 			// TODO 自動生成されたメソッド・スタブ
 			
 		}
+
+			}
 		
-}

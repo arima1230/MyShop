@@ -44,7 +44,7 @@ public class OrderDetailServlet extends HttpServlet {
 			String post_code = bean.getPostcode();
 		    String adress =bean.getAdress();
 			String building =bean.getBuilding();
-		    String roomnumber= bean.getRoomnumber();
+		    String room_number= bean.getRoomnumber();
 		    String pay_stutas = bean.getPay_status();
 		    String deli_stutas = bean.getDeli_status();
 					
@@ -55,7 +55,7 @@ public class OrderDetailServlet extends HttpServlet {
 			session.setAttribute("post_code ",post_code );
 			session.setAttribute("adress ",adress );
 			session.setAttribute("building", building);
-			session.setAttribute("roomnumber",roomnumber );
+			session.setAttribute("room_number",room_number );
 			session.setAttribute("pay_status",pay_stutas );
 			session.setAttribute("deli_status",deli_stutas );
 			

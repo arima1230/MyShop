@@ -137,5 +137,10 @@
 <input type="button" value="戻る" onClick="history.go(-1)">
 
 </form>
+
+<form method="post" name=Delete  action=" /MyShop/">
+<input type="submit" value="削除">
+</form>
+
 </body>
 </html>

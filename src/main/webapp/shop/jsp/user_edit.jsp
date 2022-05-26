@@ -18,7 +18,7 @@ String sex = (String) request.getAttribute("sex");
 
 <p>会員情報変更</p>
 
-<form method="post" name=a  action=" /MyShop/DoUserEdit">
+<form method="post" name=Edit  action=" /MyShop/DoUserEdit">
 
 <div>
 <p>
@@ -151,5 +151,10 @@ String sex = (String) request.getAttribute("sex");
 <input type="button" value="戻る" onClick="history.go(-1)">
 
 </form>
+l
+<form method="post" name=Delete  action=" /MyShop/">
+<input type="submit" value="削除">
+</form>
+
 </body>
 </html>
